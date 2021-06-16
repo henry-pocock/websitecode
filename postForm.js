@@ -2,7 +2,9 @@ document.getElementById('pin')
     .addEventListener('keyup', function(event) {
         if (event.code === 'Enter')
         {
-            event.preventDefault();
-            document.querySelector('form').submit();
+            var x = document.forms[0];
+            if (x == "231203") {
+                window.location.assign('https://youtube.com');
+            }
         }
     });
