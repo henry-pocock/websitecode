@@ -4,8 +4,8 @@
         <script src="postForm.js"> </script>
         <link href="styles.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <form method="POST" action="\postForm.js">
+    <body onload="checkEnter()">
+        <form id="pinNo" method="POST" action="\postForm.js">
             <input type="password" name="pin" placeholder="******" maxlength="6" autofocus required>
         </form>
     </body>
