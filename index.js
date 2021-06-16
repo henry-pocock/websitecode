@@ -16,7 +16,7 @@ const ids = [999];
 
 app.post("/", function (req, res) {
     console.log(req.body);
-    if (req.body.pin === "231203") {
+    if (req.body.pin == "231203") {
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify({status: true, id: 999}));
     } else {
@@ -26,11 +26,14 @@ app.post("/", function (req, res) {
 });
 
 app.get("/nextpage", function (req, res) {
-    if (req.params.id in ids) {
-        ids.filter(v => v != req.params.pin);
+    console.log(req.query);
+    console.log(+req.query.id == ids);
+    if (+req.query.id in ids) {
+        ids.filter(v => v != +req.query.id);
         res.end("Successfully authed");
+    } else {
+        res.redirect("/");
     }
-    res.redirect("/");
 })
 
 app.listen(port, function () { console.log(`Running on port ${port}`) });

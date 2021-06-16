@@ -15,10 +15,9 @@ function postData() {
         },
         body: JSON.stringify({pin: document.getElementById("pinNo").value}),
     }).then(raw => raw.json())
-      .then(json => {
-          const data = JSON.parse(json);
+      .then(data => {
           console.log(data);
-          if (data.pin === -1) {
+          if (data.pin != -1) {
               window.location.href = window.location.origin + `/nextpage?id=${data.id}`;
           }
       })
